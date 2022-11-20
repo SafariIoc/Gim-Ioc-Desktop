@@ -154,8 +154,10 @@ public class login extends javax.swing.JFrame {
             String password = passText.getText();
             Con.getConnexio();
             
+                      
             
-            //consulta SQL per verificat si l'usuari existeix o és correcte
+            
+            //consulta SQL per verificat si l'usuari és correcte
             String SQL = "SELECT id, usuari, id_tipus FROM usuaris  WHERE usuari ='"+usuari+"' AND password = '"+password+"' AND id_tipus = '2'";
             Con.resultat = Con.sentencia.executeQuery(SQL);
             

@@ -165,33 +165,61 @@ public class Registre extends javax.swing.JFrame {
         //configuració botó registre usuaris
         SQLUsuaris modSql = new SQLUsuaris();
         usuaris mod = new usuaris();
-        
-        String pass = new String (txtPass.getPassword());
-        String passCon = new String (txtConfirmaPass.getPassword());
-        
-        if (pass.equals(passCon)){
-          String newPass=Hash.sha1(pass);  
-          mod.setUsuari(txtUsuari.getText());
-          mod.setPassword(newPass);
-          mod.setNom(txtNom.getText());
-          mod.setCorreu(txtCorreu.getText());
-          mod.setId_tipus(2); //tipus usuari final
-          
-          //si les dades corresponen amb els valors que es demana registre ok
-          if (modSql.registrar(mod)){
-              JOptionPane.showMessageDialog (null, "Registre correcte");          
-          
-              //si les dades no corresponen amb els valors demanats, missatge error
-          }else{
-            JOptionPane.showMessageDialog(null, "Error al guardar les dades");
-          }
-        
-          //si la contrasenya i la de confirmació no són iguals mostrem missatge d'avís
-        }else{
-            JOptionPane.showMessageDialog(null, "Les contrasenyes no coincideixen");
+
+        String pass = new String(txtPass.getPassword());
+        String passCon = new String(txtConfirmaPass.getPassword());
+
+        //revisem que no estigui cap camp buit
+        if (txtUsuari.getText().equals("") || pass.equals("") || passCon.equals("") || txtNom.getText().equals("") || txtCorreu.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Hi han valors buits, omple tota la informació");
+        } else {
+
+            if (pass.equals(passCon)) {
+                if (modSql.ExisteixUsuari(txtUsuari.getText()) == 0) {
+
+                    //verifiquem que el valor del camp de correu correspongui a un correu electrònic
+                    if (modSql.EsEmail(txtCorreu.getText())) {
+
+                        String newPass = Hash.sha1(pass);
+                        mod.setUsuari(txtUsuari.getText());
+                        mod.setPassword(newPass);
+                        mod.setNom(txtNom.getText());
+                        mod.setCorreu(txtCorreu.getText());
+                        mod.setId_tipus(2); //tipus usuari final
+
+                        //si les dades corresponen amb els valors que es demana registre ok
+                        if (modSql.Registrar(mod)) {
+                            JOptionPane.showMessageDialog(null, "Registre correcte");
+                            Buidar();
+
+                            //si les dades no corresponen amb els valors demanats, missatge error
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Error al guardar les dades");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El correu no és vàlid");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuari ja existeix");
+                }
+
+                //si la contrasenya i la de confirmació no són iguals mostrem missatge d'avís
+            } else {
+                JOptionPane.showMessageDialog(null, "Les contrasenyes no coincideixen");
+            }
+
         }
 
     }//GEN-LAST:event_btRegistrarActionPerformed
+
+    //buidem capses d'opcions 
+    public void Buidar() {
+        txtUsuari.setText("");
+        txtPass.setText("");
+        txtConfirmaPass.setText("");
+        txtNom.setText("");
+        txtCorreu.setText("");
+    }
 
     private void BtTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTornarActionPerformed
         //Funció del botó tornar, per retornar a la pantalla anterior sense tancar el programa:

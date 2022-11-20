@@ -32,7 +32,6 @@ public class Panel extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         llistaBD = new javax.swing.JButton();
-        deleteUser = new javax.swing.JButton();
         BtTancar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,15 +49,6 @@ public class Panel extends javax.swing.JFrame {
             }
         });
 
-        deleteUser.setBackground(new java.awt.Color(153, 153, 153));
-        deleteUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        deleteUser.setText("Eliminar usuaris");
-        deleteUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserActionPerformed(evt);
-            }
-        });
-
         BtTancar.setBackground(new java.awt.Color(153, 153, 153));
         BtTancar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtTancar.setText("Tancar sessió");
@@ -72,6 +62,10 @@ public class Panel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(BtTancar)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,25 +73,17 @@ public class Panel extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(llistaBD))
-                        .addGap(119, 119, 119))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(BtTancar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(llistaBD)
+                        .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(56, 56, 56)
+                .addGap(90, 90, 90)
                 .addComponent(llistaBD)
-                .addGap(18, 18, 18)
-                .addComponent(deleteUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(BtTancar)
                 .addGap(27, 27, 27))
         );
@@ -107,12 +93,11 @@ public class Panel extends javax.swing.JFrame {
 
     private void llistaBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistaBDActionPerformed
         //Botó per llista usuaris de la Base de dades 
-        //List<usuaris> llista = SQLUsuaris.LlistaUsuaris();
+        this.setVisible(false);
+        LlistaUsuaris llu = new LlistaUsuaris();
+        llu.setVisible(true);
+        
     }//GEN-LAST:event_llistaBDActionPerformed
-
-    private void deleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserActionPerformed
-        // Botó per eliminar usuari
-    }//GEN-LAST:event_deleteUserActionPerformed
 
     private void BtTancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTancarActionPerformed
         //Botó per tancar la sessió
@@ -156,7 +141,6 @@ public class Panel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtTancar;
-    private javax.swing.JButton deleteUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton llistaBD;
     // End of variables declaration//GEN-END:variables

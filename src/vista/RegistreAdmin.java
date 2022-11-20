@@ -20,6 +20,11 @@ public class RegistreAdmin extends javax.swing.JFrame {
      */
     public RegistreAdmin() {
         initComponents();
+
+        //Declarem variables per escollir tipus usuari si Admin o Profe         
+        SeleccioAdmin.addItem("Admin");
+        SeleccioAdmin.addItem("Profe");
+
     }
 
     /**
@@ -31,42 +36,42 @@ public class RegistreAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        Titol = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Usuari = new javax.swing.JLabel();
         txtUsuari = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        Contrasenya = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        ConfContrasenya = new javax.swing.JLabel();
         txtConfirmaPass = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
+        Nom = new javax.swing.JLabel();
         txtNom = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        Correu = new javax.swing.JLabel();
         txtCorreu = new javax.swing.JTextField();
         btRegistrar = new javax.swing.JButton();
         BtTornar = new javax.swing.JButton();
+        SeleccioAdmin = new javax.swing.JComboBox<>();
+        tipusUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Registre Administradors GIM-IOC");
+        Titol.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Titol.setText("Registre Administradors GIM-IOC");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sigriid\\Desktop\\proyecto sigrid desktop-pasar a drive tea2 mio no grupo\\logo ioc mini.png")); // NOI18N
+        Usuari.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Usuari.setText("Usuari:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Usuari:");
+        Contrasenya.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Contrasenya.setText("Contrasenya:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Contrasenya:");
+        ConfContrasenya.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ConfContrasenya.setText("<html>Confirmar contrasenya:</html>");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("<html>Confirmar contrasenya:</html>");
+        Nom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Nom.setText("Nom:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Nom:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Correu:");
+        Correu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Correu.setText("Correu:");
 
         btRegistrar.setBackground(new java.awt.Color(153, 153, 153));
         btRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -86,6 +91,9 @@ public class RegistreAdmin extends javax.swing.JFrame {
             }
         });
 
+        tipusUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tipusUser.setText("Tipus usuari:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,71 +101,78 @@ public class RegistreAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(jLabel2)
-                .addGap(0, 114, Short.MAX_VALUE))
+                .addGap(0, 286, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(Correu)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(ConfContrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Contrasenya))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(BtTornar)))
+                            .addComponent(Usuari)
+                            .addComponent(Nom)
+                            .addComponent(tipusUser))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btRegistrar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtCorreu, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addComponent(txtNom)
-                                .addComponent(txtConfirmaPass)
-                                .addComponent(txtUsuari, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtCorreu, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(txtNom)
+                            .addComponent(txtConfirmaPass)
+                            .addComponent(txtUsuari, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SeleccioAdmin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(25, 25, 25))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(Titol)
                 .addGap(83, 83, 83))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(BtTornar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btRegistrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(Titol)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(Usuari)
                     .addComponent(txtUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(Contrasenya)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConfContrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtConfirmaPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(Nom))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(Correu)
                     .addComponent(txtCorreu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SeleccioAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipusUser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRegistrar)
                     .addComponent(BtTornar))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -167,34 +182,71 @@ public class RegistreAdmin extends javax.swing.JFrame {
         //configuració botó registre administradors
         SQLUsuaris modSql = new SQLUsuaris();
         usuaris mod = new usuaris();
-        
-        String pass = new String (txtPass.getPassword());
-        String passCon = new String (txtConfirmaPass.getPassword());
-        
-        
-        if (pass.equals(passCon)){
-          String newPass=Hash.sha1(pass);  
-          mod.setUsuari(txtUsuari.getText());
-          mod.setPassword(newPass);
-          mod.setNom(txtNom.getText());
-          mod.setCorreu(txtCorreu.getText());
-          mod.setId_tipus(1); //tipus usuari administrador
-          
-          //si les dades corresponen amb els valors que es demana registre ok
-          if (modSql.registrar(mod)){
-              JOptionPane.showMessageDialog (null, "Registre correcte");          
-          
-              //si les dades no corresponen amb els valors demanats, missatge erro
-          }else{
-            JOptionPane.showMessageDialog(null, "Error al guardar les dades");
-          }
-        
-          //si la contrasenya i la de confirmació no són iguals mostrem missatge d'avís
-        }else{
-            JOptionPane.showMessageDialog(null, "Les contrasenyes no coincideixen");
+
+        //declarem les variables per recollir la contrasenya i la confirmació
+        String pass = new String(txtPass.getPassword());
+        String passCon = new String(txtConfirmaPass.getPassword());
+
+        //revisem que no estigui cap camp buit
+        if (txtUsuari.getText().equals("") || pass.equals("") || passCon.equals("") || txtNom.getText().equals("") || txtCorreu.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Hi han valors buits, omple tota la informació");
+        } else {
+
+            //declarem variable de la selecció del tipus d'administrador
+            String TipusAdmin = (String) SeleccioAdmin.getSelectedItem();
+
+            //Segons selecció d'usuari
+            if (TipusAdmin.equals("Admin")) {
+                mod.setId_tipus(1); // si selecció és Administrador és tipus usuari administrador
+            } else {
+                mod.setId_tipus(3); //Sino és tipus usuari professor           
+            }
+
+            if (pass.equals(passCon)) {
+                if (modSql.ExisteixUsuari(txtUsuari.getText()) == 0) {
+
+                    //verifiquem que el valor del camp de correu correspongui a un correu electrònic
+                    if (modSql.EsEmail(txtCorreu.getText())) {
+
+                        String newPass = Hash.sha1(pass);
+                        mod.setUsuari(txtUsuari.getText());
+                        mod.setPassword(newPass);
+                        mod.setNom(txtNom.getText());
+                        mod.setCorreu(txtCorreu.getText());
+
+                        //si les dades corresponen amb els valors que es demana registre ok
+                        if (modSql.Registrar(mod)) {
+                            JOptionPane.showMessageDialog(null, "Registre correcte");
+                            Buidar();
+
+                            //si les dades no corresponen amb els valors demanats, missatge error
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Error al guardar les dades");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El correu no és vàlid");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuari ja existeix");
+                }
+
+                //si la contrasenya i la de confirmació no són iguals mostrem missatge d'avís
+            } else {
+                JOptionPane.showMessageDialog(null, "Les contrasenyes no coincideixen");
+            }
         }
 
+
     }//GEN-LAST:event_btRegistrarActionPerformed
+
+    //buidem capses d'opcions 
+    public void Buidar() {
+        txtUsuari.setText("");
+        txtPass.setText("");
+        txtConfirmaPass.setText("");
+        txtNom.setText("");
+        txtCorreu.setText("");
+    }
 
     private void BtTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTornarActionPerformed
         //Funció del botó tornar, per retornar a la pantalla anterior sense tancar el programa:
@@ -241,14 +293,16 @@ public class RegistreAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtTornar;
+    private javax.swing.JLabel ConfContrasenya;
+    private javax.swing.JLabel Contrasenya;
+    private javax.swing.JLabel Correu;
+    private javax.swing.JLabel Nom;
+    private javax.swing.JComboBox<String> SeleccioAdmin;
+    private javax.swing.JLabel Titol;
+    private javax.swing.JLabel Usuari;
     private javax.swing.JButton btRegistrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel tipusUser;
     private javax.swing.JPasswordField txtConfirmaPass;
     private javax.swing.JTextField txtCorreu;
     private javax.swing.JTextField txtNom;

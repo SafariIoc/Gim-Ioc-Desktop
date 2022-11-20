@@ -4,6 +4,11 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import modelo.SQLUsuaris;
+import modelo.usuaris;
+
 
 
 /**
@@ -11,12 +16,24 @@ package vista;
  * @author Sigriid
  */
 public class LlistaUsuaris extends javax.swing.JFrame {
+    
+    private final SQLUsuaris SQLU;
 
     /**
      * Creates new form LlistaUsuaris
      */
     public LlistaUsuaris() {
         initComponents();
+        SQLU =new SQLUsuaris();
+        Llistar();        
+        this.setLocationRelativeTo(null);
+               
+        
+    }
+    
+    //creem mètode per llistar
+    private void Llistar(){
+        taulaUsers.setModel(SQLU.GetDades());
     }
 
     /**
@@ -32,7 +49,11 @@ public class LlistaUsuaris extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taulaUsers = new javax.swing.JTable();
         TITOL = new javax.swing.JLabel();
-        BTllista = new javax.swing.JButton();
+        LogoIoc = new javax.swing.JLabel();
+        SelecUser = new javax.swing.JComboBox<>();
+        textTipus = new javax.swing.JLabel();
+        btFiltrar = new javax.swing.JButton();
+        botEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,16 +62,16 @@ public class LlistaUsuaris extends javax.swing.JFrame {
         taulaUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         taulaUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Id", "Usuari", "Nom", "Pasword", "Correu", "Id_Tipus"
+
             }
         ));
         jScrollPane1.setViewportView(taulaUsers);
@@ -59,12 +80,28 @@ public class LlistaUsuaris extends javax.swing.JFrame {
         TITOL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TITOL.setText("Llista d'usuaris GIM-IOC");
 
-        BTllista.setBackground(new java.awt.Color(153, 153, 153));
-        BTllista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BTllista.setText("Llistar usuaris");
-        BTllista.addActionListener(new java.awt.event.ActionListener() {
+        LogoIoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo ioc mini.png"))); // NOI18N
+
+        SelecUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Usuari", "Profe" }));
+
+        textTipus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        textTipus.setText("Seleccionar tipus d'usuari");
+
+        btFiltrar.setBackground(new java.awt.Color(153, 153, 153));
+        btFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btFiltrar.setText("Llistar usuaris filtrats");
+        btFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTllistaActionPerformed(evt);
+                btFiltrarActionPerformed(evt);
+            }
+        });
+
+        botEliminar.setBackground(new java.awt.Color(153, 153, 153));
+        botEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botEliminar.setText("Esborrar usuari");
+        botEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEliminarActionPerformed(evt);
             }
         });
 
@@ -72,24 +109,40 @@ public class LlistaUsuaris extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
-                .addComponent(TITOL)
-                .addGap(91, 91, 91))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(BTllista)
+                .addGap(22, 22, 22)
+                .addComponent(LogoIoc)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(SelecUser, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textTipus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btFiltrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(TITOL)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(TITOL)
                 .addGap(18, 18, 18)
-                .addComponent(BTllista)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogoIoc)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(TITOL)
+                        .addGap(35, 35, 35)
+                        .addComponent(textTipus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SelecUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(btFiltrar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -113,10 +166,31 @@ public class LlistaUsuaris extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTllistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTllistaActionPerformed
-        //botó llistar usuaris
+    private void btFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFiltrarActionPerformed
+      
+//filtrar usuaris per selecció de tipus
+        taulaUsers.setModel(SQLU.GetDada(SelecUser.getSelectedIndex()));
         
-    }//GEN-LAST:event_BTllistaActionPerformed
+        
+    }//GEN-LAST:event_btFiltrarActionPerformed
+    
+    //acció al clicar al botó esborrar per esborrar l'usuari
+    private void botEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEliminarActionPerformed
+        //creem variable
+        int fila =taulaUsers.getSelectedRowCount();
+        
+        //verifiquem si ha alguna fila seleccionada o no
+        if (fila < 1){
+            //Mostrem missatge d'avís conforme cal seleccionar una fila
+            JOptionPane.showMessageDialog(null, "Selecciona un registre de la taula");
+                    
+        }else{
+            //Si ja està seleccionat cridem el mètode per esborrar usuaris
+            SQLU.deleteUser(taulaUsers.getValueAt(taulaUsers.getSelectedRow(), 0).toString());            
+            
+        }            
+        
+    }//GEN-LAST:event_botEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,10 +228,14 @@ public class LlistaUsuaris extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTllista;
+    private javax.swing.JLabel LogoIoc;
+    private javax.swing.JComboBox<String> SelecUser;
     private javax.swing.JLabel TITOL;
+    private javax.swing.JButton botEliminar;
+    private javax.swing.JButton btFiltrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable taulaUsers;
+    private javax.swing.JLabel textTipus;
     // End of variables declaration//GEN-END:variables
 }

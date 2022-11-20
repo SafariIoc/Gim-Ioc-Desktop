@@ -153,7 +153,7 @@ public class LoginAdmin extends javax.swing.JFrame {
             
             
             //consulta SQL per verificat si l'usuari existeix o és correcte
-            String SQL = "SELECT id, usuari, id_tipus FROM usuaris  WHERE usuari ='"+usuari+"' AND password = '"+password+"' AND id_tipus = '1'";
+            String SQL = "SELECT id, usuari, id_tipus FROM usuaris  WHERE usuari ='"+usuari+"' AND password = '"+password+"' AND id_tipus = '1' OR '3'";
             Con.resultat = Con.sentencia.executeQuery(SQL);
             
             // si tot està bé inici de sessió
