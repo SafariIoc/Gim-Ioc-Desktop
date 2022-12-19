@@ -52,37 +52,20 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="Reserva" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="objectius" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spinning" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="pilates" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="fitbox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="aquagim" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="bodypump" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="BotoTancar" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="llistarObjectius" max="32767" attributes="0"/>
+                              <Component id="BotoTancar" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="rutinaClass" min="-2" max="-2" attributes="0"/>
-                              <Component id="classes" min="-2" max="-2" attributes="0"/>
-                              <Component id="rutina3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rutina1" min="-2" max="-2" attributes="0"/>
-                              <Component id="passos" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="180" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -91,39 +74,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Reserva" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="objectius" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="spinning" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="passos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="pilates" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rutina1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fitbox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rutina3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="aquagim" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="bodypump" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rutinaClass" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="llistarObjectius" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="91" max="32767" attributes="0"/>
                   <Component id="BotoTancar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -143,75 +98,6 @@
             <Property name="text" type="java.lang.String" value="Panel de Control Usuaris GIM-IOC"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Reserva">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Reserva de classes "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="spinning">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Spinning"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="pilates">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pilates"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="fitbox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="FitBox"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="aquagim">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="AquaGim"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="bodypump">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BodyPump"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="objectius">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Objectius"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="passos">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="6000 passos diaris"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="rutina1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Rutina 1h"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="rutina3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="3 rutines setmanals"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="classes">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="4 classes setmanals"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="rutinaClass">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Rutina 1h *3 dies i 2 classes setmanals"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="BotoTancar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -224,6 +110,20 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotoTancarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="llistarObjectius">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Llistar Objectius"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="llistarObjectiusActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

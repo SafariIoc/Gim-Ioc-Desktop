@@ -4,24 +4,26 @@
  */
 package vista;
 
-import com.mysql.jdbc.Statement;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Hash;
 import modelo.SQLUsuari;
-import modelo.Usuari;
 import modelo.Connexio;
-import java.sql.SQLException;
+import modelo.Usuari;
 
 /**
  *
  * @author Sigriid
  */
-public class LoginAdmin extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form LoginAdmin
+     * Creates new form log
      */
-    public LoginAdmin() {
+    public Login() {
         initComponents();
     }
 
@@ -36,35 +38,37 @@ public class LoginAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        titol = new javax.swing.JLabel();
-        usuari = new javax.swing.JLabel();
-        password = new javax.swing.JLabel();
-        passwordText = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        Usuari = new javax.swing.JLabel();
+        Contrasenya = new javax.swing.JLabel();
         usuariText = new javax.swing.JTextField();
-        BTLogin = new javax.swing.JButton();
+        passText = new javax.swing.JPasswordField();
+        btLogin = new javax.swing.JButton();
         BtTornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo ioc mini.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sigriid\\Documents\\NetBeansProjects\\Gim-Ioc-Desktop\\src\\main\\java\\imatges\\logo-ioc.png")); // NOI18N
 
-        titol.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        titol.setText("Login GIM-IOC Administradors");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Login usuaris GIM-IOC");
 
-        usuari.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        usuari.setText("Usuari:");
+        Usuari.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Usuari.setText("Usuari:");
 
-        password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        password.setText("Contrasenya:");
+        Contrasenya.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Contrasenya.setText("Contrasenya:");
 
-        BTLogin.setBackground(new java.awt.Color(153, 153, 153));
-        BTLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BTLogin.setText("Iniciar Sessió");
-        BTLogin.addActionListener(new java.awt.event.ActionListener() {
+        btLogin.setBackground(new java.awt.Color(153, 153, 153));
+        btLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btLogin.setText("Iniciar Sessió");
+        btLogin.setToolTipText("");
+        btLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTLoginActionPerformed(evt);
+                btLoginActionPerformed(evt);
             }
         });
 
@@ -82,89 +86,90 @@ public class LoginAdmin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(102, 102, 102)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(titol)
-                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(password)
-                            .addComponent(usuari))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordText)
-                            .addComponent(usuariText, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addComponent(Contrasenya)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passText, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                    .addComponent(Usuari))
+                .addGap(107, 107, 107))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(BtTornar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(BTLogin)
-                .addGap(50, 50, 50))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(usuariText, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(107, 107, 107))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(121, 121, 121))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(BtTornar)
+                        .addGap(67, 67, 67)
+                        .addComponent(btLogin)
+                        .addGap(50, 50, 50))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(titol)
-                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usuari)
+                    .addComponent(Usuari)
                     .addComponent(usuariText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Contrasenya)
+                    .addComponent(passText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password)
-                    .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTLogin)
+                    .addComponent(btLogin)
                     .addComponent(BtTornar))
-                .addGap(0, 63, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTLoginActionPerformed
-        //configuració per fer login admin amb dades BD mysqlworkbench
+    private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         try{
+            //configuració per fer login usuari amb dades BD mysqlworkbench
             Connexio Con = new Connexio();
             String usuari = usuariText.getText();
-            String password = passwordText.getText();
+            String password = passText.getText();
             Con.getConnexio();
             
+                      
             
-            //consulta SQL per verificat si l'usuari existeix o és correcte
-            String SQL = "SELECT id, usuari, id_tipus FROM usuaris  WHERE usuari ='"+usuari+"' AND password = '"+password+"' AND id_tipus = '1' OR '3'";
+            
+            //consulta SQL per verificat si l'usuari és correcte
+            String SQL = "SELECT id, usuari, id_tipus FROM usuaris  WHERE usuari ='"+usuari+"' AND password = '"+password+"' AND id_tipus = '2'";
             Con.resultat = Con.sentencia.executeQuery(SQL);
             
             // si tot està bé inici de sessió
             if(Con.resultat.next()){
                 setVisible(false);
                 JOptionPane.showMessageDialog(null, "Benvingut!");
-                Panel p = new Panel();
-                p.setVisible(true);
+                PanelUser pu = new PanelUser();
+                pu.setVisible(true);
                 
                 
-            //si falta alguna dada o alguna no coincideix mostrem avís   
+            //si falta alguna dada o alguna no coincideix mostrem avís    
             }else{
                 JOptionPane.showMessageDialog(null, "Dades incorrectes o usuari no vàlid");
             }
@@ -172,15 +177,18 @@ public class LoginAdmin extends javax.swing.JFrame {
         }catch (SQLException ex){
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-           
                            
-    }//GEN-LAST:event_BTLoginActionPerformed
+     
+        
+               
+    }//GEN-LAST:event_btLoginActionPerformed
 
     private void BtTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTornarActionPerformed
-        //Funció del botó tornar, per retornar a la pantalla anterior sense tancar el programa:
+    //Funció del botó tornar, per retornar a la pantalla anterior sense tancar el programa:
         this.setVisible(false);
         Inici inici = new Inici();
         inici.setVisible(true);
+    
     }//GEN-LAST:event_BtTornarActionPerformed
 
     /**
@@ -200,33 +208,36 @@ public class LoginAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginAdmin().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTLogin;
     private javax.swing.JButton BtTornar;
+    private javax.swing.JLabel Contrasenya;
+    private javax.swing.JLabel Usuari;
+    private javax.swing.JButton btLogin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel password;
-    private javax.swing.JPasswordField passwordText;
-    private javax.swing.JLabel titol;
-    private javax.swing.JLabel usuari;
+    private javax.swing.JPasswordField passText;
     private javax.swing.JTextField usuariText;
     // End of variables declaration//GEN-END:variables
 }

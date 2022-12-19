@@ -6,8 +6,8 @@ package vista;
 
 import javax.swing.JOptionPane;
 import modelo.Hash;
-import modelo.SQLUsuaris;
-import modelo.usuaris;
+import modelo.SQLUsuari;
+import modelo.Usuari;
 
 /**
  *
@@ -88,6 +88,12 @@ public class RegistreAdmin extends javax.swing.JFrame {
         BtTornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtTornarActionPerformed(evt);
+            }
+        });
+
+        SeleccioAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccioAdminActionPerformed(evt);
             }
         });
 
@@ -180,8 +186,8 @@ public class RegistreAdmin extends javax.swing.JFrame {
 
     private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
         //configuració botó registre administradors
-        SQLUsuaris modSql = new SQLUsuaris();
-        usuaris mod = new usuaris();
+        SQLUsuari modSql = new SQLUsuari();
+        Usuari mod = new Usuari();
 
         //declarem les variables per recollir la contrasenya i la confirmació
         String pass = new String(txtPass.getPassword());
@@ -254,6 +260,10 @@ public class RegistreAdmin extends javax.swing.JFrame {
         Inici inici = new Inici();
         inici.setVisible(true);
     }//GEN-LAST:event_BtTornarActionPerformed
+
+    private void SeleccioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccioAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccioAdminActionPerformed
 
     /**
      * @param args the command line arguments

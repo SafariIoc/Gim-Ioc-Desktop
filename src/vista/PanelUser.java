@@ -36,19 +36,8 @@ public class PanelUser extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Reserva = new javax.swing.JLabel();
-        spinning = new javax.swing.JCheckBox();
-        pilates = new javax.swing.JCheckBox();
-        fitbox = new javax.swing.JCheckBox();
-        aquagim = new javax.swing.JCheckBox();
-        bodypump = new javax.swing.JCheckBox();
-        objectius = new javax.swing.JLabel();
-        passos = new javax.swing.JCheckBox();
-        rutina1 = new javax.swing.JCheckBox();
-        rutina3 = new javax.swing.JCheckBox();
-        classes = new javax.swing.JCheckBox();
-        rutinaClass = new javax.swing.JCheckBox();
         BotoTancar = new javax.swing.JButton();
+        llistarObjectius = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,33 +48,6 @@ public class PanelUser extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 51, 204));
         jLabel1.setText("Panel de Control Usuaris GIM-IOC");
 
-        Reserva.setBackground(new java.awt.Color(255, 255, 255));
-        Reserva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Reserva.setText("Reserva de classes ");
-
-        spinning.setText("Spinning");
-
-        pilates.setText("Pilates");
-
-        fitbox.setText("FitBox");
-
-        aquagim.setText("AquaGim");
-
-        bodypump.setText("BodyPump");
-
-        objectius.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        objectius.setText("Objectius");
-
-        passos.setText("6000 passos diaris");
-
-        rutina1.setText("Rutina 1h");
-
-        rutina3.setText("3 rutines setmanals");
-
-        classes.setText("4 classes setmanals");
-
-        rutinaClass.setText("Rutina 1h *3 dies i 2 classes setmanals");
-
         BotoTancar.setBackground(new java.awt.Color(153, 153, 153));
         BotoTancar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BotoTancar.setText("Tancar Sessió");
@@ -95,69 +57,41 @@ public class PanelUser extends javax.swing.JFrame {
             }
         });
 
+        llistarObjectius.setBackground(new java.awt.Color(153, 153, 153));
+        llistarObjectius.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        llistarObjectius.setText("Llistar Objectius");
+        llistarObjectius.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                llistarObjectiusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Reserva)
-                        .addGap(75, 75, 75)
-                        .addComponent(objectius))
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spinning)
-                            .addComponent(pilates)
-                            .addComponent(fitbox)
-                            .addComponent(aquagim)
-                            .addComponent(bodypump)
-                            .addComponent(BotoTancar))
-                        .addGap(120, 120, 120)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rutinaClass)
-                            .addComponent(classes)
-                            .addComponent(rutina3)
-                            .addComponent(rutina1)
-                            .addComponent(passos)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(97, 97, 97)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(185, 185, 185)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(llistarObjectius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotoTancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Reserva)
-                    .addComponent(objectius))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spinning)
-                    .addComponent(passos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pilates)
-                    .addComponent(rutina1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fitbox)
-                    .addComponent(rutina3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aquagim)
-                    .addComponent(classes))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bodypump)
-                    .addComponent(rutinaClass))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(llistarObjectius)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(BotoTancar)
-                .addGap(26, 26, 26))
+                .addGap(86, 86, 86))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,6 +112,13 @@ public class PanelUser extends javax.swing.JFrame {
         //Botó per tancar la sessió
         this.dispose();
     }//GEN-LAST:event_BotoTancarActionPerformed
+
+    private void llistarObjectiusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistarObjectiusActionPerformed
+        //Botó per llista objectius de la Base de dades 
+        this.setVisible(false);
+        LlistaObjectiu llo = new LlistaObjectiu();
+        llo.setVisible(true);
+    }//GEN-LAST:event_llistarObjectiusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,22 +158,11 @@ public class PanelUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotoTancar;
-    private javax.swing.JLabel Reserva;
-    private javax.swing.JCheckBox aquagim;
-    private javax.swing.JCheckBox bodypump;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JCheckBox classes;
-    private javax.swing.JCheckBox fitbox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel objectius;
-    private javax.swing.JCheckBox passos;
-    private javax.swing.JCheckBox pilates;
-    private javax.swing.JCheckBox rutina1;
-    private javax.swing.JCheckBox rutina3;
-    private javax.swing.JCheckBox rutinaClass;
-    private javax.swing.JCheckBox spinning;
+    private javax.swing.JButton llistarObjectius;
     // End of variables declaration//GEN-END:variables
 }

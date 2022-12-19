@@ -161,7 +161,7 @@ public class Inici extends javax.swing.JFrame {
 
     private void BTLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTLoginUserActionPerformed
         // obrim login usuaris
-        login l = new login();
+        Login l = new Login();
         l.setVisible(true);
         
     }//GEN-LAST:event_BTLoginUserActionPerformed

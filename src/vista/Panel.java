@@ -5,8 +5,8 @@
 package vista;
 
 import java.util.List;
-import modelo.SQLUsuaris;
-import modelo.usuaris;
+import modelo.SQLUsuari;
+import modelo.Usuari;
 
 /**
  *
@@ -33,6 +33,7 @@ public class Panel extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         llistaBD = new javax.swing.JButton();
         BtTancar = new javax.swing.JButton();
+        altaObj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +59,15 @@ public class Panel extends javax.swing.JFrame {
             }
         });
 
+        altaObj.setBackground(new java.awt.Color(153, 153, 153));
+        altaObj.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        altaObj.setText("Alta d'objectius");
+        altaObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaObjActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,7 +83,9 @@ public class Panel extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(llistaBD)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(llistaBD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(altaObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
@@ -83,7 +95,9 @@ public class Panel extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(90, 90, 90)
                 .addComponent(llistaBD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(altaObj)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(BtTancar)
                 .addGap(27, 27, 27))
         );
@@ -94,7 +108,7 @@ public class Panel extends javax.swing.JFrame {
     private void llistaBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistaBDActionPerformed
         //Botó per llista usuaris de la Base de dades 
         this.setVisible(false);
-        LlistaUsuaris llu = new LlistaUsuaris();
+        LlistaUsuari llu = new LlistaUsuari();
         llu.setVisible(true);
         
     }//GEN-LAST:event_llistaBDActionPerformed
@@ -103,6 +117,13 @@ public class Panel extends javax.swing.JFrame {
         //Botó per tancar la sessió
         this.dispose();
     }//GEN-LAST:event_BtTancarActionPerformed
+
+    private void altaObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaObjActionPerformed
+        //obrim alta d'objectius
+        
+        AltaObjectiu ao = new AltaObjectiu();
+        ao.setVisible(true);
+    }//GEN-LAST:event_altaObjActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +162,7 @@ public class Panel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtTancar;
+    private javax.swing.JButton altaObj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton llistaBD;
     // End of variables declaration//GEN-END:variables

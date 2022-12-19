@@ -6,8 +6,8 @@ package vista;
 
 import javax.swing.JOptionPane;
 import modelo.Hash;
-import modelo.SQLUsuaris;
-import modelo.usuaris;
+import modelo.SQLUsuari;
+import modelo.Usuari;
 
 /**
  *
@@ -163,8 +163,8 @@ public class Registre extends javax.swing.JFrame {
 
     private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
         //configuració botó registre usuaris
-        SQLUsuaris modSql = new SQLUsuaris();
-        usuaris mod = new usuaris();
+        SQLUsuari modSql = new SQLUsuari();
+        Usuari mod = new Usuari();
 
         String pass = new String(txtPass.getPassword());
         String passCon = new String(txtConfirmaPass.getPassword());
