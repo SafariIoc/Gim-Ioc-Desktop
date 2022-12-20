@@ -17,9 +17,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sigriid
  */
-public class SQLObjectiu extends Connexio{
-    //creem consulta per llistar objectius
-    private final String SQL_SELECT= "SELECT * FROM objectius";
+public class SQLClasse extends Connexio{
+    //creem consulta per llistar classes
+    private final String SQL_SELECT= "SELECT * FROM classes";
     
     //Creem objecte privat
     private DefaultTableModel DT;
@@ -32,42 +32,43 @@ public class SQLObjectiu extends Connexio{
         //afegir el títols que volem visualitzar a la taula
         DT = new DefaultTableModel();
         DT.addColumn("Id");
-        DT.addColumn("Nom");               
+        DT.addColumn("Nom"); 
         DT.addColumn("Id Tipus");
-        
+                
         return DT;
     }
-    //mètode per registrar objectius
-    public boolean Registrar (Objectiu obj){
+    
+    //mètode per registrar classes
+    public boolean Registrar (Classe cl){
         PreparedStatement ps = null;
         Connection con = getConnexio();
         
-        String sql = "INSERT INTO objectius ( nom, id_tipus) VALUES (?,?)";
+        String sql = "INSERT INTO classe ( nom, id_tipus) VALUES (?,?)";
         
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, obj.getNom());            
-            ps.setInt(2, obj.getId_tipus());
+            ps.setString(1, cl.getNom());            
+            ps.setInt(2, cl.getId_tipus());
             ps.execute();
             return true;
             
         } catch (SQLException ex) {
-            Logger.getLogger(SQLObjectiu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SQLClasse.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
     
-    //mètode per confirmar si existeix un objectiu a la BD
-    public int ExisteixObjectiu (String objectiu){
+    //mètode per confirmar si existeix una classe a la BD
+    public int ExisteixClasse (String classe){
         PreparedStatement ps = null;
         ResultSet rs= null;
         Connection con = getConnexio();
         
-        String sql = "SELECT count(id) FROM objectiu WHERE objectiu = ?";
+        String sql = "SELECT count(id) FROM classe WHERE classe = ?";
         
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, objectiu);            
+            ps.setString(1, classe);            
             rs = ps.executeQuery();
             
             //verifiquem si retorna dades
@@ -78,7 +79,7 @@ public class SQLObjectiu extends Connexio{
             return 1;
             
         } catch (SQLException ex) {
-            Logger.getLogger(SQLObjectiu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SQLClasse.class.getName()).log(Level.SEVERE, null, ex);
             return 1;
         }
     }
@@ -99,7 +100,7 @@ public class SQLObjectiu extends Connexio{
             //Obtenim les dades de les files conforme la informació de la nostre BD
             while (RS.next()){
                 fila[0]= RS.getInt(1);
-                fila[1]= RS.getString(2);                               
+                fila[1]= RS.getString(2);   
                 fila[2]= RS.getInt(3);
                 DT.addRow(fila); //afegim valor a la fila
                 
@@ -115,21 +116,19 @@ public class SQLObjectiu extends Connexio{
         return DT;
     }
     
-    //creem mètode per filtrar tipus objectiu de la BD
+    //creem mètode per filtrar tipus classe de la BD
     public DefaultTableModel GetDada(int id_tipus){
         String SQL = null;
         
         //creem un switch per cada opció de filtrar
         switch (id_tipus) {
             case 1:
-                //tipus objectiu 
-                SQL = "SELECT * FROM objectius WHERE id_tipus = 2";
+                //tipus classe 
+                SQL = "SELECT * FROM classe WHERE id_tipus = 2";
                 break;
-            case 2:
-                SQL = "SELECT * FROM objectius WHERE id_tipus = 3";
-                break;            
-            default:
-                SQL = "SELECT * FROM objectius WHERE id_tipus = 1";
+                       
+            default:     
+                SQL = "SELECT * FROM classe WHERE id_tipus = 1";           
                 break;
         }
         
@@ -169,11 +168,11 @@ public class SQLObjectiu extends Connexio{
         
         //si seleccionem la primera opció ID escribint al quadre i intro
         if(criteri == 0){
-            SQL = "SELECT * FROM objectius WHERE idObjectius = " +parametre;
+            SQL = "SELECT * FROM classe WHERE idClasse = " +parametre;
             
         //si escollim filtrar per nom escrit al quadre de text i intro
         }else{
-            SQL ="SELECT * FROM objectius WHERE nom like '" +parametre+ "%'";
+            SQL ="SELECT * FROM classe WHERE nom like '" +parametre+ "%'";
             
         }
             
@@ -207,27 +206,31 @@ public class SQLObjectiu extends Connexio{
         return DT;
     }
     
-    //mètode per eliminació d'objectius
-    public int deleteObjectiu(String id){
+    //mètode per eliminació de classes
+    public int deleteClasse(String id){
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnexio();
         int res = 0;
         
-        //consultar per eliminar objectiu per id
-        String SQL = "DELETE from objectius WHERE idObjectius=" +id;
+        //consultar per eliminar classe per id
+        String SQL = "DELETE from classe WHERE idClasse=" +id;
         try{
             ps = con.prepareStatement(SQL);
             res =ps.executeUpdate();
             if(res>0){
-                JOptionPane.showMessageDialog(null,"Objectiu esborrat");              
+                JOptionPane.showMessageDialog(null,"Classe esborrada");              
             }
             //excepció en cas d'error en l'eliminació
         }catch (SQLException e){
-            System.err.println("Error al esborrar l'objectiu" + e.getMessage());
+            System.err.println("Error al esborrar la classe" + e.getMessage());
         }finally{
             ps= null;            
         }
         return res;
     }
+
+
 }
+    
+

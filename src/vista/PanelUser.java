@@ -38,6 +38,7 @@ public class PanelUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BotoTancar = new javax.swing.JButton();
         llistarObjectius = new javax.swing.JButton();
+        llistarClasses = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,15 @@ public class PanelUser extends javax.swing.JFrame {
             }
         });
 
+        llistarClasses.setBackground(new java.awt.Color(153, 153, 153));
+        llistarClasses.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        llistarClasses.setText("Llistar Classes");
+        llistarClasses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                llistarClassesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,7 +89,8 @@ public class PanelUser extends javax.swing.JFrame {
                         .addGap(185, 185, 185)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(llistarObjectius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotoTancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(BotoTancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(llistarClasses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,7 +100,9 @@ public class PanelUser extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34)
                 .addComponent(llistarObjectius)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(llistarClasses)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(BotoTancar)
                 .addGap(86, 86, 86))
         );
@@ -119,6 +132,13 @@ public class PanelUser extends javax.swing.JFrame {
         LlistaObjectiu llo = new LlistaObjectiu();
         llo.setVisible(true);
     }//GEN-LAST:event_llistarObjectiusActionPerformed
+
+    private void llistarClassesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistarClassesActionPerformed
+        //Botó per llista classes de la Base de dades 
+        this.setVisible(false);
+        LlistaClasse llc = new LlistaClasse();
+        llc.setVisible(true);
+    }//GEN-LAST:event_llistarClassesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,6 +183,7 @@ public class PanelUser extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton llistarClasses;
     private javax.swing.JButton llistarObjectius;
     // End of variables declaration//GEN-END:variables
 }

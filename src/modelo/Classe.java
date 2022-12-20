@@ -8,16 +8,18 @@ package modelo;
  *
  * @author Sigriid
  */
-public class Objectiu {
+public class Classe {
+   
     private int id;    
-    private String nom;    
+    private String nom; 
     private int id_tipus;
+    
 
-    public int getIdObjectius() {
+    public int getIdClasse() {
         return id;
     }
 
-    public void setIdObjectius(int id) {
+    public void setIdClasse(int id) {
         this.id = id;
     }
 
@@ -29,7 +31,6 @@ public class Objectiu {
         this.nom = nom;
     }
     
-
     public int getId_tipus() {
         return id_tipus;
     }
@@ -38,5 +39,9 @@ public class Objectiu {
         this.id_tipus = id_tipus;
     }
     
+   
+    
     
 }
+    
+

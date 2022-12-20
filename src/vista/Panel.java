@@ -34,6 +34,7 @@ public class Panel extends javax.swing.JFrame {
         llistaBD = new javax.swing.JButton();
         BtTancar = new javax.swing.JButton();
         altaObj = new javax.swing.JButton();
+        altaClas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +69,15 @@ public class Panel extends javax.swing.JFrame {
             }
         });
 
+        altaClas.setBackground(new java.awt.Color(153, 153, 153));
+        altaClas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        altaClas.setText("Alta de classes");
+        altaClas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaClasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,7 +95,8 @@ public class Panel extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(llistaBD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(altaObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(altaObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(altaClas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
@@ -97,7 +108,9 @@ public class Panel extends javax.swing.JFrame {
                 .addComponent(llistaBD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(altaObj)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(altaClas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(BtTancar)
                 .addGap(27, 27, 27))
         );
@@ -124,6 +137,13 @@ public class Panel extends javax.swing.JFrame {
         AltaObjectiu ao = new AltaObjectiu();
         ao.setVisible(true);
     }//GEN-LAST:event_altaObjActionPerformed
+
+    private void altaClasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaClasActionPerformed
+        //obrim alta de classes
+        
+        AltaClasse ac = new AltaClasse();
+        ac.setVisible(true);
+    }//GEN-LAST:event_altaClasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +182,7 @@ public class Panel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtTancar;
+    private javax.swing.JButton altaClas;
     private javax.swing.JButton altaObj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton llistaBD;

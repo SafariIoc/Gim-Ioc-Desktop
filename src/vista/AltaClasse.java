@@ -5,25 +5,24 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import modelo.Objectiu;
-import modelo.SQLObjectiu;
+import modelo.Classe;
+import modelo.SQLClasse;
 
 /**
  *
  * @author Sigriid
  */
-public class AltaObjectiu extends javax.swing.JFrame {
+public class AltaClasse extends javax.swing.JFrame {
 
     /**
-     * Creates new form AltaObjectiu
+     * Creates new form AltaClasse
      */
-    public AltaObjectiu() {
+    public AltaClasse() {
         initComponents();
         
-        //Declarem variables per escollir tipus objectiu         
-        SeleccioObjectiu.addItem("Rutina");
-        SeleccioObjectiu.addItem("Gimnàs");
-        SeleccioObjectiu.addItem("Passos");
+        //Declarem variables per escollir tipus classe        
+        SeleccioClasse.addItem("Virtual");
+        SeleccioClasse.addItem("Aula");        
     }
 
     /**
@@ -37,22 +36,22 @@ public class AltaObjectiu extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         Nom = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        tipusClass = new javax.swing.JLabel();
         txtNom = new javax.swing.JTextField();
-        SeleccioObjectiu = new javax.swing.JComboBox<>();
+        SeleccioClasse = new javax.swing.JComboBox<>();
         btTornar = new javax.swing.JButton();
         btGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Alta d'objectius per a usuaris");
+        jLabel1.setText("Alta classes GIM-IOC");
 
         Nom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Nom.setText("Nom d'objectiu:");
+        Nom.setText("Nom de la classe:");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Tipus d'objectiu:");
+        tipusClass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tipusClass.setText("Tipus de classe:");
 
         btTornar.setBackground(new java.awt.Color(153, 153, 153));
         btTornar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -76,45 +75,44 @@ public class AltaObjectiu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(98, 98, 98))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Nom)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtNom)
-                        .addComponent(SeleccioObjectiu, 0, 122, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btTornar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(108, 108, 108))
+                        .addGap(131, 131, 131)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Nom)
+                            .addComponent(tipusClass))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNom)
+                                .addComponent(SeleccioClasse, 0, 127, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btTornar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(42, 42, 42)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Nom)
                     .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(SeleccioObjectiu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
+                    .addComponent(tipusClass)
+                    .addComponent(SeleccioClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
                 .addComponent(btTornar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btGuardar)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,12 +123,13 @@ public class AltaObjectiu extends javax.swing.JFrame {
         this.setVisible(false);
         Panel panel = new Panel();
         panel.setVisible(true);
+     
     }//GEN-LAST:event_btTornarActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
-        //configuració botó guardar objectiu
-        SQLObjectiu modSql = new SQLObjectiu();
-        Objectiu mod = new Objectiu();
+        //configuració botó guardar classe
+        SQLClasse modSql = new SQLClasse();
+        Classe mod = new Classe();
 
         
 
@@ -139,14 +138,14 @@ public class AltaObjectiu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Hi han valors buits, omple tota la informació");
         } else {
 
-            //declarem variable de la selecció del tipus d'objectiu
-            String TipusAdmin = (String) SeleccioObjectiu.getSelectedItem();
+            //declarem variable de la selecció del tipus de classe
+            String TipusClasse = (String) SeleccioClasse.getSelectedItem();
 
-            //Segons selecció d'objectiu
-            if (TipusAdmin.equals("Rutina")) {
-                mod.setId_tipus(1); // si selecció és Rutina
+            //Segons selecció de classe
+            if (TipusClasse.equals("Virtual")) {
+                mod.setId_tipus(1); // si selecció és virtual
             } else {
-                mod.setId_tipus(3); //Sino és Passos          
+                mod.setId_tipus(2); //Sino és rutina          
             }
            
             mod.setNom(txtNom.getText());
@@ -157,15 +156,13 @@ public class AltaObjectiu extends javax.swing.JFrame {
                 Buidar();
                 
             } else {
-                    JOptionPane.showMessageDialog(null, "Objectiu ja existeix");
+                    JOptionPane.showMessageDialog(null, "La classe ja existeix");
                     
                         
             }
         }
-        
-        
     }//GEN-LAST:event_btGuardarActionPerformed
-
+    
     //buidem capses d'opcions 
     public void Buidar() {        
         txtNom.setText("");
@@ -188,31 +185,31 @@ public class AltaObjectiu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AltaObjectiu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AltaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AltaObjectiu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AltaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AltaObjectiu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AltaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AltaObjectiu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AltaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AltaObjectiu().setVisible(true);
+                new AltaClasse().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Nom;
-    private javax.swing.JComboBox<String> SeleccioObjectiu;
+    private javax.swing.JComboBox<String> SeleccioClasse;
     private javax.swing.JButton btGuardar;
     private javax.swing.JButton btTornar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel tipusClass;
     private javax.swing.JTextField txtNom;
     // End of variables declaration//GEN-END:variables
 }

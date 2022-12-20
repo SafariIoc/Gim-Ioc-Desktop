@@ -39,6 +39,7 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="llistaBD" max="32767" attributes="0"/>
                           <Component id="altaObj" max="32767" attributes="0"/>
+                          <Component id="altaClas" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                   </Group>
@@ -55,7 +56,9 @@
               <Component id="llistaBD" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="altaObj" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="altaClas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
               <Component id="BtTancar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
@@ -114,6 +117,20 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altaObjActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="altaClas">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Alta de classes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altaClasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

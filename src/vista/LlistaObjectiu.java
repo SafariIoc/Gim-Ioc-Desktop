@@ -99,6 +99,11 @@ public class LlistaObjectiu extends javax.swing.JFrame {
         });
 
         TipusVariable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Tipus d'objectiu" }));
+        TipusVariable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TipusVariableActionPerformed(evt);
+            }
+        });
 
         botEliminar.setBackground(new java.awt.Color(153, 153, 153));
         botEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -136,9 +141,6 @@ public class LlistaObjectiu extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btTornar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(logo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -159,7 +161,9 @@ public class LlistaObjectiu extends javax.swing.JFrame {
                                         .addComponent(btFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(137, 137, 137))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botEliminar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btTornar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -235,6 +239,10 @@ public class LlistaObjectiu extends javax.swing.JFrame {
             taulaObjectius.setModel(SQLO.GetDadaFiltre(TipusVariable.getSelectedIndex(),textFiltr.getText()));
         }
     }//GEN-LAST:event_textFiltrKeyReleased
+
+    private void TipusVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipusVariableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TipusVariableActionPerformed
 
     /**
      * @param args the command line arguments
