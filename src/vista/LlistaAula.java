@@ -6,30 +6,31 @@ package vista;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import modelo.SQLClasse;
-
+import modelo.SQLAula;
 /**
  *
  * @author Sigriid
  */
-public class LlistaClasse extends javax.swing.JFrame {
+public class LlistaAula extends javax.swing.JFrame {
     
-    private final SQLClasse SQLC;
+    private final SQLAula SQLA;
 
     /**
-     * Creates new form LlistaClasse
+     * Creates new form LlistaAula
      */
-    public LlistaClasse() {
+    public LlistaAula() {
         initComponents();
-        SQLC =new SQLClasse();
+        SQLA =new SQLAula();
         Llistar();        
         this.setLocationRelativeTo(null);
     }
     
-    //creem mètode per llistar classes
+    //creem mètode per llistar aules
     private void Llistar(){
-        taulaClasses.setModel(SQLC.GetDades());
+        taulaAules.setModel(SQLA.GetDades());
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,59 +41,44 @@ public class LlistaClasse extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         titol = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        SelecClass = new javax.swing.JComboBox<>();
-        btFiltrar = new javax.swing.JButton();
+        titol2 = new javax.swing.JLabel();
+        SelecHorari = new javax.swing.JComboBox<>();
         TipusVariable = new javax.swing.JComboBox<>();
         textFiltr = new javax.swing.JTextField();
+        btFiltrar = new javax.swing.JButton();
         btTornar = new javax.swing.JButton();
         botEliminar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        taulaClasses = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taulaAules = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo ioc mini.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo ioc mini.png"))); // NOI18N
 
         titol.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        titol.setText("Llistat de classes GIM-IOC");
+        titol.setText("Llistat d'aules per horaris disponibles GIM-IOC");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Seleccionar el tipus de classe");
+        titol2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        titol2.setText("Seleccionar el tipus d'aula");
 
-        SelecClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Virtual", "Aula" }));
+        SelecHorari.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matí", "Migdia", "Tarda" }));
 
-        btFiltrar.setBackground(new java.awt.Color(153, 153, 153));
-        btFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btFiltrar.setText("Llistar classes filtrades");
-        btFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFiltrarActionPerformed(evt);
-            }
-        });
-
-        TipusVariable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Tipus de classe" }));
+        TipusVariable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Horari" }));
 
         textFiltr.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textFiltrKeyReleased(evt);
+            }
+        });
+
+        btFiltrar.setBackground(new java.awt.Color(153, 153, 153));
+        btFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btFiltrar.setText("Llistar aules filtrades");
+        btFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFiltrarActionPerformed(evt);
             }
         });
 
@@ -107,14 +93,14 @@ public class LlistaClasse extends javax.swing.JFrame {
 
         botEliminar.setBackground(new java.awt.Color(153, 153, 153));
         botEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        botEliminar.setText("Esborrar classe");
+        botEliminar.setText("Esborrar aula");
         botEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botEliminarActionPerformed(evt);
             }
         });
 
-        taulaClasses.setModel(new javax.swing.table.DefaultTableModel(
+        taulaAules.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -125,81 +111,83 @@ public class LlistaClasse extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(taulaClasses);
+        jScrollPane1.setViewportView(taulaAules);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(45, 45, 45)
+                        .addComponent(logo)
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(titol)
-                            .addComponent(jLabel2)
+                            .addComponent(titol2)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(TipusVariable, javax.swing.GroupLayout.Alignment.LEADING, 0, 97, Short.MAX_VALUE)
-                                    .addComponent(SelecClass, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(TipusVariable, javax.swing.GroupLayout.Alignment.LEADING, 0, 112, Short.MAX_VALUE)
+                                    .addComponent(SelecHorari, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(textFiltr)))))
+                                    .addComponent(textFiltr)
+                                    .addComponent(btFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btTornar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(botEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                        .addComponent(btTornar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(156, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(titol)
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2)
                         .addGap(18, 18, 18)
+                        .addComponent(titol2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SelecClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SelecHorari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btFiltrar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TipusVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textFiltr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1))
+                    .addComponent(logo))
                 .addGap(18, 18, 18)
                 .addComponent(btTornar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFiltrarActionPerformed
+        //filtrar classes per selecció de tipus d'horari
+        taulaAules.setModel(SQLA.GetDada(SelecHorari.getSelectedIndex()));
+    }//GEN-LAST:event_btFiltrarActionPerformed
+
     private void btTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTornarActionPerformed
         //Funció del botó tornar, per retornar a la pantalla anterior sense tancar el programa:
         this.setVisible(false);
         PanelUser panelu = new PanelUser();
-        panelu.setVisible(true);    
+        panelu.setVisible(true);
     }//GEN-LAST:event_btTornarActionPerformed
 
-    private void btFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFiltrarActionPerformed
-        //filtrar classes per selecció de tipus
-        taulaClasses.setModel(SQLC.GetDada(SelecClass.getSelectedIndex()));
-    }//GEN-LAST:event_btFiltrarActionPerformed
-
     private void botEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEliminarActionPerformed
-        //acció al clicar al botó esborrar per esborrar la classe seleccionada
+        //acció al clicar al botó esborrar per esborrar l'aula seleccionada
         //creem variable
-        int fila =taulaClasses.getSelectedRowCount();
+        int fila =taulaAules.getSelectedRowCount();
         
         //verifiquem si ha alguna fila seleccionada o no
         if (fila < 1){
@@ -207,8 +195,8 @@ public class LlistaClasse extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecciona un registre de la taula");
                     
         }else{
-            //Si ja està seleccionat cridem el mètode per esborrar classes
-            SQLC.deleteClasse(taulaClasses.getValueAt(taulaClasses.getSelectedRow(), 0).toString());            
+            //Si ja està seleccionat cridem el mètode per esborrar aula
+            SQLA.deleteAula(taulaAules.getValueAt(taulaAules.getSelectedRow(), 0).toString());            
             
         }
     }//GEN-LAST:event_botEliminarActionPerformed
@@ -218,7 +206,7 @@ public class LlistaClasse extends javax.swing.JFrame {
         char tecla = evt.getKeyChar();
         //verifiquem si la tecla pitjada és enter
         if (tecla == KeyEvent.VK_ENTER){
-            taulaClasses.setModel(SQLC.GetDadaFiltre(TipusVariable.getSelectedIndex(),textFiltr.getText()));
+            taulaAules.setModel(SQLA.GetDadaFiltre(TipusVariable.getSelectedIndex(),textFiltr.getText()));
         }
     }//GEN-LAST:event_textFiltrKeyReleased
 
@@ -239,37 +227,35 @@ public class LlistaClasse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LlistaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LlistaAula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LlistaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LlistaAula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LlistaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LlistaAula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LlistaClasse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LlistaAula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LlistaClasse().setVisible(true);
+                new LlistaAula().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> SelecClass;
+    private javax.swing.JComboBox<String> SelecHorari;
     private javax.swing.JComboBox<String> TipusVariable;
     private javax.swing.JButton botEliminar;
     private javax.swing.JButton btFiltrar;
     private javax.swing.JButton btTornar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable taulaClasses;
+    private javax.swing.JLabel logo;
+    private javax.swing.JTable taulaAules;
     private javax.swing.JTextField textFiltr;
     private javax.swing.JLabel titol;
+    private javax.swing.JLabel titol2;
     // End of variables declaration//GEN-END:variables
 }

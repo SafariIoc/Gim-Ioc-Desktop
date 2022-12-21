@@ -35,6 +35,7 @@ public class Panel extends javax.swing.JFrame {
         BtTancar = new javax.swing.JButton();
         altaObj = new javax.swing.JButton();
         altaClas = new javax.swing.JButton();
+        altaAula = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +79,15 @@ public class Panel extends javax.swing.JFrame {
             }
         });
 
+        altaAula.setBackground(new java.awt.Color(153, 153, 153));
+        altaAula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        altaAula.setText("Alta d'aules");
+        altaAula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaAulaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +106,8 @@ public class Panel extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(llistaBD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(altaObj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(altaClas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(altaClas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(altaAula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
@@ -108,11 +119,13 @@ public class Panel extends javax.swing.JFrame {
                 .addComponent(llistaBD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(altaObj)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(altaClas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(altaAula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(BtTancar)
-                .addGap(27, 27, 27))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -144,6 +157,13 @@ public class Panel extends javax.swing.JFrame {
         AltaClasse ac = new AltaClasse();
         ac.setVisible(true);
     }//GEN-LAST:event_altaClasActionPerformed
+
+    private void altaAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaAulaActionPerformed
+        //obrim alta d'aules
+        
+        AltaAula aa = new AltaAula();
+        aa.setVisible(true);    
+    }//GEN-LAST:event_altaAulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +202,7 @@ public class Panel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtTancar;
+    private javax.swing.JButton altaAula;
     private javax.swing.JButton altaClas;
     private javax.swing.JButton altaObj;
     private javax.swing.JLabel jLabel1;

@@ -17,9 +17,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sigriid
  */
-public class SQLClasse extends Connexio{
-    //creem consulta per llistar classes
-    private final String SQL_SELECT= "SELECT * FROM classe";
+public class SQLAula extends Connexio{
+    
+//creem consulta per llistar aules
+    private final String SQL_SELECT= "SELECT * FROM aula";
     
     //Creem objecte privat
     private DefaultTableModel DT;
@@ -33,42 +34,42 @@ public class SQLClasse extends Connexio{
         DT = new DefaultTableModel();
         DT.addColumn("Id");
         DT.addColumn("Nom"); 
-        DT.addColumn("Id Tipus");
+        DT.addColumn("Horari");
                 
         return DT;
     }
     
-    //mètode per registrar classes
-    public boolean Registrar (Classe cl){
+//mètode per registrar aula
+    public boolean Registrar (Aula au){
         PreparedStatement ps = null;
         Connection con = getConnexio();
         
-        String sql = "INSERT INTO classe ( nom, id_tipus) VALUES (?,?)";
+        String sql = "INSERT INTO aula ( nom, id_tipus) VALUES (?,?)";
         
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, cl.getNom());            
-            ps.setInt(2, cl.getId_tipus());
+            ps.setString(1, au.getNom());            
+            ps.setInt(2, au.getId_tipus());
             ps.execute();
             return true;
             
         } catch (SQLException ex) {
-            Logger.getLogger(SQLClasse.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SQLAula.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
     
-    //mètode per confirmar si existeix una classe a la BD
-    public int ExisteixClasse (String classe){
+    //mètode per confirmar si existeix una aula a la BD
+    public int ExisteixAula (String aula){
         PreparedStatement ps = null;
         ResultSet rs= null;
         Connection con = getConnexio();
         
-        String sql = "SELECT count(id) FROM classe WHERE classe = ?";
+        String sql = "SELECT count(id) FROM aula WHERE aula = ?";
         
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, classe);            
+            ps.setString(1, aula);            
             rs = ps.executeQuery();
             
             //verifiquem si retorna dades
@@ -79,7 +80,7 @@ public class SQLClasse extends Connexio{
             return 1;
             
         } catch (SQLException ex) {
-            Logger.getLogger(SQLClasse.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SQLAula.class.getName()).log(Level.SEVERE, null, ex);
             return 1;
         }
     }
@@ -115,20 +116,23 @@ public class SQLClasse extends Connexio{
         
         return DT;
     }
-    
-    //creem mètode per filtrar tipus classe de la BD
+    //creem mètode per filtrar tipus d'horari d'aula de la BD
     public DefaultTableModel GetDada(int id_tipus){
         String SQL = null;
         
         //creem un switch per cada opció de filtrar
         switch (id_tipus) {
             case 1:
-                //tipus classe 
-                SQL = "SELECT * FROM classe WHERE id_tipus = 2";
+                //migdia 
+                SQL = "SELECT * FROM aula WHERE id_tipus = 2";
                 break;
-                       
-            default:     
-                SQL = "SELECT * FROM classe WHERE id_tipus = 1";           
+            case 2:
+                //tarda
+                SQL = "SELECT * FROM aula WHERE id_tipus = 3";
+                break;                       
+            default: 
+                //mati
+                SQL = "SELECT * FROM aula WHERE id_tipus = 1";           
                 break;
         }
         
@@ -168,11 +172,11 @@ public class SQLClasse extends Connexio{
         
         //si seleccionem la primera opció ID escribint al quadre i intro
         if(criteri == 0){
-            SQL = "SELECT * FROM classe WHERE idClasse = " +parametre;
+            SQL = "SELECT * FROM aula WHERE id = " +parametre;
             
         //si escollim filtrar per nom escrit al quadre de text i intro
         }else{
-            SQL ="SELECT * FROM classe WHERE nom like '" +parametre+ "%'";
+            SQL ="SELECT * FROM aula WHERE nom like '" +parametre+ "%'";
             
         }
             
@@ -206,24 +210,24 @@ public class SQLClasse extends Connexio{
         return DT;
     }
     
-    //mètode per eliminació de classes
-    public int deleteClasse(String id){
+    //mètode per eliminació d'aula
+    public int deleteAula(String id){
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnexio();
         int res = 0;
         
-        //consultar per eliminar classe per id
-        String SQL = "DELETE from classe WHERE idClasse=" +id;
+        //consultar per eliminar aula per id
+        String SQL = "DELETE from aula WHERE id=" +id;
         try{
             ps = con.prepareStatement(SQL);
             res =ps.executeUpdate();
             if(res>0){
-                JOptionPane.showMessageDialog(null,"Classe esborrada");              
+                JOptionPane.showMessageDialog(null,"Aula esborrada");              
             }
             //excepció en cas d'error en l'eliminació
         }catch (SQLException e){
-            System.err.println("Error al esborrar la classe" + e.getMessage());
+            System.err.println("Error al esborrar l'aula" + e.getMessage());
         }finally{
             ps= null;            
         }
@@ -233,4 +237,7 @@ public class SQLClasse extends Connexio{
 
 }
     
+
+    
+
 

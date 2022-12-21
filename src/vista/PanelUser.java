@@ -39,6 +39,7 @@ public class PanelUser extends javax.swing.JFrame {
         BotoTancar = new javax.swing.JButton();
         llistarObjectius = new javax.swing.JButton();
         llistarClasses = new javax.swing.JButton();
+        llistarAules = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,15 @@ public class PanelUser extends javax.swing.JFrame {
             }
         });
 
+        llistarAules.setBackground(new java.awt.Color(153, 153, 153));
+        llistarAules.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        llistarAules.setText("Llistar Aules");
+        llistarAules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                llistarAulesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -90,7 +100,8 @@ public class PanelUser extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(llistarObjectius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BotoTancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(llistarClasses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(llistarClasses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(llistarAules, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,9 +113,11 @@ public class PanelUser extends javax.swing.JFrame {
                 .addComponent(llistarObjectius)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(llistarClasses)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(llistarAules)
+                .addGap(27, 27, 27)
                 .addComponent(BotoTancar)
-                .addGap(86, 86, 86))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,18 +140,25 @@ public class PanelUser extends javax.swing.JFrame {
     }//GEN-LAST:event_BotoTancarActionPerformed
 
     private void llistarObjectiusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistarObjectiusActionPerformed
-        //Botó per llista objectius de la Base de dades 
+        //Botó per llistar objectius de la Base de dades 
         this.setVisible(false);
         LlistaObjectiu llo = new LlistaObjectiu();
         llo.setVisible(true);
     }//GEN-LAST:event_llistarObjectiusActionPerformed
 
     private void llistarClassesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistarClassesActionPerformed
-        //Botó per llista classes de la Base de dades 
+        //Botó per llistar classes de la Base de dades 
         this.setVisible(false);
         LlistaClasse llc = new LlistaClasse();
         llc.setVisible(true);
     }//GEN-LAST:event_llistarClassesActionPerformed
+
+    private void llistarAulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llistarAulesActionPerformed
+        //Botó per llistar aules de la Base de dades 
+        this.setVisible(false);
+        LlistaAula lla = new LlistaAula();
+        lla.setVisible(true);
+    }//GEN-LAST:event_llistarAulesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +203,7 @@ public class PanelUser extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton llistarAules;
     private javax.swing.JButton llistarClasses;
     private javax.swing.JButton llistarObjectius;
     // End of variables declaration//GEN-END:variables
